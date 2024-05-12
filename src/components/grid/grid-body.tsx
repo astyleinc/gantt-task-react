@@ -73,6 +73,34 @@ export const GridBody: React.FC<GridBodyProps> = ({
         className={styles.gridTick}
       />
     );
+
+    if (date.getDay() === 6 || date.getDay() === 0) {
+      ticks.push(
+        <rect
+          key={date.getTime() + "weekend"}
+          x={tickX}
+          y={0}
+          width={columnWidth}
+          height={y}
+          fill="rgba(0, 0, 0, 0.05)"
+        />
+      );
+    }
+
+    // dateと年、月、日が一致する休日があるかどうか
+    if (holidays.find(holiday => holiday.toDateString() === date.toDateString())) {
+      ticks.push(
+        <rect
+          key={date.getTime() + "holiday"}
+          x={tickX}
+          y={0}
+          width={columnWidth}
+          height={y}
+          fill="rgba(0, 0, 255, 0.05)"
+        />
+      );
+    }
+
     if (
       (i + 1 !== dates.length &&
         date.getTime() < now.getTime() &&
