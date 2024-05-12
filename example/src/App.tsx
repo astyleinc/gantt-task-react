@@ -87,6 +87,7 @@ const App = () => {
         onExpanderClick={handleExpanderClick}
         listCellWidth={isChecked ? "155px" : ""}
         columnWidth={columnWidth}
+        holidays={[new Date("2024-05-07")]}
       />
       <h3>Gantt With Limited Height</h3>
       <Gantt
@@ -102,6 +103,7 @@ const App = () => {
         listCellWidth={isChecked ? "155px" : ""}
         ganttHeight={300}
         columnWidth={columnWidth}
+        holidays={[new Date("2024-05-07")]}
       />
     </div>
   );
