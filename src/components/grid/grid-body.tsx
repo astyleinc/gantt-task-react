@@ -11,6 +11,7 @@ export type GridBodyProps = {
   columnWidth: number;
   todayColor: string;
   rtl: boolean;
+  holidays : Date[];
 };
 export const GridBody: React.FC<GridBodyProps> = ({
   tasks,
@@ -20,6 +21,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
   columnWidth,
   todayColor,
   rtl,
+  holidays
 }) => {
   let y = 0;
   const gridRows: ReactChild[] = [];
