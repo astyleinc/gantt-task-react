@@ -65,6 +65,11 @@ export const GridBody: React.FC<GridBodyProps> = ({
   let today: ReactChild = <rect />;
   for (let i = 0; i < dates.length; i++) {
     const date = dates[i];
+    // 月末の日付の場合フラグ
+    // const endOfMonth = date.getDate() === new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    // 月初の日付の場合フラグ
+    const startOfMonth = date.getDate() === 1;
+
     ticks.push(
       <line
         key={date.getTime()}
@@ -72,7 +77,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         y1={0}
         x2={tickX}
         y2={y}
-        className={styles.gridTick}
+        className={startOfMonth ? styles.gridTickStartOfMonth : styles.gridTick}
       />
     );
 

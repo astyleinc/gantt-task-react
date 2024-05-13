@@ -13,3 +13,8 @@
 .gridTick {
   stroke: #e6e4e4;
 }
+
+.gridTickStartOfMonth {
+  stroke: #e6e4e4;
+  stroke-width: 3;
+}
